@@ -40,6 +40,8 @@ class EmbedderFacade {
    */
   static EmbedderFacadeResponse invokeEmbedder(EmbedderFacadeRequest req)
       throws ModelBuildingException {
+      throw new ModelBuildingException(null);
+    /*
     File localRepoPath;
 
     if (req.getLocalRepositoryPath() != null) {
@@ -112,7 +114,7 @@ class EmbedderFacade {
     }
 
     return new EmbedderFacadeResponse(
-        modelBuildingResult, session, repositorySystem, remoteRepositories);
+        modelBuildingResult, session, repositorySystem, remoteRepositories);*/
   }
 
   /** Request object for invoking Maven Embedder. */
