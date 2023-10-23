@@ -76,6 +76,6 @@ abstract class AbstractCommand implements Command {
       localRepositoryPath = new File(System.getProperty("user.home"), ".m2/repository");
     }
 
-    return localRepositoryPath;
+    return null;
   }
 }

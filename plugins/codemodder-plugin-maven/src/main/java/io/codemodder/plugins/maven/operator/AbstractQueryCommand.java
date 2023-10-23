@@ -187,8 +187,10 @@ abstract class AbstractQueryCommand extends AbstractCommand {
     Properties props = new Properties(System.getProperties());
     props.setProperty("outputFile", outputPath.getAbsolutePath());
 
-    String localRepositoryPath = getLocalRepositoryPath(c).getAbsolutePath();
-    props.setProperty("maven.repo.local", localRepositoryPath);
+    String localRepositoryPath = getLocalRepositoryPath(c) == null ? null : getLocalRepositoryPath(c).getAbsolutePath();
+    if(localRepositoryPath != null){
+        props.setProperty("maven.repo.local", localRepositoryPath);
+    }
 
     InvocationRequest request = new DefaultInvocationRequest();
     findMaven(request);

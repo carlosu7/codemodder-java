@@ -85,7 +85,7 @@ class QueryByEmbedder extends AbstractQueryCommand {
         throw new IllegalStateException("Unexpected status code: " + String.format("%02d", result));
       }
     } catch (CommandLineConfigurationException e) {
-      // throw new RuntimeException(e);
+       throw new RuntimeException(e);
     } finally {
       if (oldMultimoduleValue != null) {
         System.setProperty(MAVEN_MULTIMODULE_PROJECT_DIRECTORY, oldMultimoduleValue);
