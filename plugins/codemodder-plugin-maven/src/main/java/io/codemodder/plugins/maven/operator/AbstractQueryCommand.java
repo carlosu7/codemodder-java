@@ -218,10 +218,8 @@ abstract class AbstractQueryCommand extends AbstractCommand {
    * @param invocationRequest InvocationRequest to be filled up
    */
   private void findMaven(InvocationRequest invocationRequest) {
-    /*
-     * Step 1: Locate Maven Home
-     */
-    String m2homeEnvVar = System.getenv("M2_HOME");
+    //Step 1: Locate Maven Home
+    /*String m2homeEnvVar = System.getenv("M2_HOME");
 
     if (m2homeEnvVar != null) {
       File m2HomeDir = new File(m2homeEnvVar);
@@ -231,7 +229,7 @@ abstract class AbstractQueryCommand extends AbstractCommand {
       }
     }
 
-    /** Step 1.1: Try to guess if that's the case */
+    // Step 1.1: Try to guess if that's the case
     if (invocationRequest.getMavenHome() == null) {
       File inferredHome = new File(SystemUtils.getUserHome(), ".m2");
 
@@ -243,7 +241,7 @@ abstract class AbstractQueryCommand extends AbstractCommand {
       invocationRequest.setMavenHome(inferredHome);
     }
 
-    /** Step 2: Find Maven Executable given the operating system and PATH variable contents */
+    // Step 2: Find Maven Executable given the operating system and PATH variable contents
     List<String> possibleExecutables = Arrays.asList("mvn", "mvnw");
 
     File foundExecutable =
@@ -255,9 +253,9 @@ abstract class AbstractQueryCommand extends AbstractCommand {
 
     if (foundExecutable != null) {
       invocationRequest.setMavenExecutable(foundExecutable);
-    } else {
+    } else {*/
       throw new IllegalStateException("Missing Maven Home / Executable");
-    }
+    //}
   }
 
   @Override
