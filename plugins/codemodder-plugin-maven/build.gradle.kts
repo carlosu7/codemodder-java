@@ -1,6 +1,7 @@
 plugins {
     id("io.codemodder.java-library")
     id("io.codemodder.maven-publish")
+    kotlin("jvm") version "1.9.20-RC"
 }
 
 description = "Plugin for providing Maven dependency management functions to codemods."
@@ -75,4 +76,10 @@ dependencies {
     testImplementation("junit:junit:$junitVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinTestVersion")
     compileOnly("org.slf4j:slf4j-api:$slf4jApiVersion")
+}
+repositories {
+    mavenCentral()
+}
+kotlin {
+    jvmToolchain(17)
 }
