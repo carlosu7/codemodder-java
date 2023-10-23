@@ -129,7 +129,7 @@ class EmbedderFacade {
         File pomFile,
         Collection<String> activeProfileIds,
         Collection<String> inactiveProfileIds) {
-      this.offline = offline;
+      this.offline = true;
       this.localRepositoryPath = localRepositoryPath;
       this.pomFile = pomFile;
       this.activeProfileIds = activeProfileIds != null ? activeProfileIds : Collections.emptyList();
