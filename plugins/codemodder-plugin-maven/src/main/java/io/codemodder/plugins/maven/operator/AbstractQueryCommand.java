@@ -8,7 +8,6 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import org.apache.commons.lang3.SystemUtils;
 import org.apache.maven.shared.invoker.DefaultInvocationRequest;
 import org.apache.maven.shared.invoker.InvocationRequest;
 import org.slf4j.Logger;
@@ -187,9 +186,10 @@ abstract class AbstractQueryCommand extends AbstractCommand {
     Properties props = new Properties(System.getProperties());
     props.setProperty("outputFile", outputPath.getAbsolutePath());
 
-    String localRepositoryPath = getLocalRepositoryPath(c) == null ? null : getLocalRepositoryPath(c).getAbsolutePath();
-    if(localRepositoryPath != null){
-        props.setProperty("maven.repo.local", localRepositoryPath);
+    String localRepositoryPath =
+        getLocalRepositoryPath(c) == null ? null : getLocalRepositoryPath(c).getAbsolutePath();
+    if (localRepositoryPath != null) {
+      props.setProperty("maven.repo.local", localRepositoryPath);
     }
 
     InvocationRequest request = new DefaultInvocationRequest();
@@ -218,7 +218,7 @@ abstract class AbstractQueryCommand extends AbstractCommand {
    * @param invocationRequest InvocationRequest to be filled up
    */
   private void findMaven(InvocationRequest invocationRequest) {
-    //Step 1: Locate Maven Home
+    // Step 1: Locate Maven Home
     /*String m2homeEnvVar = System.getenv("M2_HOME");
 
     if (m2homeEnvVar != null) {
@@ -254,8 +254,8 @@ abstract class AbstractQueryCommand extends AbstractCommand {
     if (foundExecutable != null) {
       invocationRequest.setMavenExecutable(foundExecutable);
     } else {*/
-      throw new IllegalStateException("Missing Maven Home / Executable");
-    //}
+    throw new IllegalStateException("Missing Maven Home / Executable");
+    // }
   }
 
   @Override

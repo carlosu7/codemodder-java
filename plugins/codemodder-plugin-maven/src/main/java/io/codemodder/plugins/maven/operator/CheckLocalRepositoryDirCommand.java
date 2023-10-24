@@ -45,8 +45,8 @@ class CheckLocalRepositoryDirCommand {
     public boolean execute(ProjectModel c) {
       File localRepositoryPath = getLocalRepositoryPath(c);
 
-      if(localRepositoryPath == null){
-          return false;
+      if (localRepositoryPath == null) {
+        return false;
       }
 
       if (!localRepositoryPath.exists()) {

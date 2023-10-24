@@ -8,11 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.maven.model.Model;
-import org.apache.maven.model.building.ModelBuildingException;
-import org.apache.maven.model.building.ModelBuildingResult;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.tree.DefaultElement;
@@ -40,19 +36,19 @@ public class POMScanner {
    */
   public static ProjectModelFactory scanFrom(File originalFile, File topLevelDirectory)
       throws Exception {
-    //ProjectModelFactory originalDocument = ProjectModelFactory.load(originalFile);
+    // ProjectModelFactory originalDocument = ProjectModelFactory.load(originalFile);
 
-    //List<File> parentPoms;
-    //try {
+    // List<File> parentPoms;
+    // try {
     //  parentPoms = getParentPoms(originalFile);
-    //} catch (Exception e) {
+    // } catch (Exception e) {
     //  if (e instanceof ModelBuildingException) {
     //    Ignorable.LOGGER.debug("mbe (you can ignore): ", e);
     //  } else {
     //    LOGGER.warn("While trying embedder: ", e);
     //  }
-      return legacyScanFrom(originalFile, topLevelDirectory);
-    //}
+    return legacyScanFrom(originalFile, topLevelDirectory);
+    // }
 
     /*try {
       List<POMDocument> parentPomDocuments =

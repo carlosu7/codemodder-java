@@ -1,10 +1,6 @@
 package io.codemodder.plugins.maven.operator;
 
 import java.util.*;
-import org.apache.maven.model.Plugin;
-import org.apache.maven.model.building.ModelBuildingException;
-import org.apache.maven.model.building.ModelBuildingResult;
-import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,16 +16,16 @@ class UnwrapEffectivePom extends AbstractVersionCommand {
    * @return `true` if the version query is successful, `false` otherwise.
    */
   public boolean execute(ProjectModel pm) {
-    //try {
+    // try {
     //  return executeInternal(pm);
-    //} catch (Exception e) {
+    // } catch (Exception e) {
     //  if (e instanceof ModelBuildingException) {
     //    Ignorable.LOGGER.debug("mbe (you can ignore): ", e);
     //  } else {
     //    LOGGER.warn("While trying embedder: ", e);
     //  }
-      return false;
-    //}
+    return false;
+    // }
   }
 
   /*private boolean executeInternal(ProjectModel pm) throws ModelBuildingException {

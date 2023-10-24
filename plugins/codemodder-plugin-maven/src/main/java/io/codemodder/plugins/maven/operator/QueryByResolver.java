@@ -5,12 +5,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import org.apache.maven.model.building.ModelBuildingException;
 import org.eclipse.aether.artifact.DefaultArtifact;
-import org.eclipse.aether.collection.CollectRequest;
-import org.eclipse.aether.collection.DependencyCollectionException;
-import org.eclipse.aether.graph.DependencyNode;
-import org.eclipse.aether.graph.DependencyVisitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,14 +42,14 @@ class QueryByResolver extends AbstractQueryCommand {
 
     this.result = new ArrayList<>();
 
-    //EmbedderFacade.EmbedderFacadeResponse embedderFacadeResponse;
+    // EmbedderFacade.EmbedderFacadeResponse embedderFacadeResponse;
 
-    //try {
+    // try {
     //  embedderFacadeResponse = EmbedderFacade.invokeEmbedder(req);
-    //} catch (ModelBuildingException mbe) {
+    // } catch (ModelBuildingException mbe) {
     //  Ignorable.LOGGER.debug("mbe (you can ignore): ", mbe);
-      return false;
-    //}
+    return false;
+    // }
 
     /*org.apache.maven.model.building.ModelBuildingResult res =
         embedderFacadeResponse.getModelBuildingResult();
