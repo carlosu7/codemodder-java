@@ -40,21 +40,21 @@ public class POMScanner {
    */
   public static ProjectModelFactory scanFrom(File originalFile, File topLevelDirectory)
       throws Exception {
-    ProjectModelFactory originalDocument = ProjectModelFactory.load(originalFile);
+    //ProjectModelFactory originalDocument = ProjectModelFactory.load(originalFile);
 
-    List<File> parentPoms;
-    try {
-      parentPoms = getParentPoms(originalFile);
-    } catch (Exception e) {
-      if (e instanceof ModelBuildingException) {
-        Ignorable.LOGGER.debug("mbe (you can ignore): ", e);
-      } else {
-        LOGGER.warn("While trying embedder: ", e);
-      }
+    //List<File> parentPoms;
+    //try {
+    //  parentPoms = getParentPoms(originalFile);
+    //} catch (Exception e) {
+    //  if (e instanceof ModelBuildingException) {
+    //    Ignorable.LOGGER.debug("mbe (you can ignore): ", e);
+    //  } else {
+    //    LOGGER.warn("While trying embedder: ", e);
+    //  }
       return legacyScanFrom(originalFile, topLevelDirectory);
-    }
+    //}
 
-    try {
+    /*try {
       List<POMDocument> parentPomDocuments =
           parentPoms.stream()
               .map(
@@ -73,7 +73,7 @@ public class POMScanner {
     } catch (Exception e) {
 
       return originalDocument;
-    }
+    }*/
   }
 
   /**
@@ -262,6 +262,7 @@ public class POMScanner {
     return !(path.startsWith("/") || path.startsWith("~"));
   }
 
+  /*
   private static List<File> getParentPoms(File originalFile) throws ModelBuildingException {
     EmbedderFacade.EmbedderFacadeResponse embedderFacadeResponse =
         EmbedderFacade.invokeEmbedder(
@@ -291,5 +292,5 @@ public class POMScanner {
     }
 
     return parentPoms;
-  }
+  }*/
 }

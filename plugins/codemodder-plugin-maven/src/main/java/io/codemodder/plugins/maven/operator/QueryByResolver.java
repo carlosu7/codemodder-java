@@ -47,16 +47,16 @@ class QueryByResolver extends AbstractQueryCommand {
 
     this.result = new ArrayList<>();
 
-    EmbedderFacade.EmbedderFacadeResponse embedderFacadeResponse;
+    //EmbedderFacade.EmbedderFacadeResponse embedderFacadeResponse;
 
-    try {
-      embedderFacadeResponse = EmbedderFacade.invokeEmbedder(req);
-    } catch (ModelBuildingException mbe) {
-      Ignorable.LOGGER.debug("mbe (you can ignore): ", mbe);
+    //try {
+    //  embedderFacadeResponse = EmbedderFacade.invokeEmbedder(req);
+    //} catch (ModelBuildingException mbe) {
+    //  Ignorable.LOGGER.debug("mbe (you can ignore): ", mbe);
       return false;
-    }
+    //}
 
-    org.apache.maven.model.building.ModelBuildingResult res =
+    /*org.apache.maven.model.building.ModelBuildingResult res =
         embedderFacadeResponse.getModelBuildingResult();
 
     List<org.eclipse.aether.graph.Dependency> deps;
@@ -126,7 +126,7 @@ class QueryByResolver extends AbstractQueryCommand {
     } catch (DependencyCollectionException e) {
       LOGGER.warn("while resolving: ", e);
       return false;
-    }
+    }*/
   }
 
   private List<String> filterActiveProfiles(Collection<String> profiles) {

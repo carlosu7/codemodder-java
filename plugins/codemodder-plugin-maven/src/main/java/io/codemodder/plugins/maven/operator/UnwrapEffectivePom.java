@@ -20,19 +20,19 @@ class UnwrapEffectivePom extends AbstractVersionCommand {
    * @return `true` if the version query is successful, `false` otherwise.
    */
   public boolean execute(ProjectModel pm) {
-    try {
-      return executeInternal(pm);
-    } catch (Exception e) {
-      if (e instanceof ModelBuildingException) {
-        Ignorable.LOGGER.debug("mbe (you can ignore): ", e);
-      } else {
-        LOGGER.warn("While trying embedder: ", e);
-      }
+    //try {
+    //  return executeInternal(pm);
+    //} catch (Exception e) {
+    //  if (e instanceof ModelBuildingException) {
+    //    Ignorable.LOGGER.debug("mbe (you can ignore): ", e);
+    //  } else {
+    //    LOGGER.warn("While trying embedder: ", e);
+    //  }
       return false;
-    }
+    //}
   }
 
-  private boolean executeInternal(ProjectModel pm) throws ModelBuildingException {
+  /*private boolean executeInternal(ProjectModel pm) throws ModelBuildingException {
     EmbedderFacade.EmbedderFacadeRequest request =
         new EmbedderFacade.EmbedderFacadeRequest(
             pm.isOffline(), null, pm.getPomFile().getFile(), null, null);
@@ -90,5 +90,5 @@ class UnwrapEffectivePom extends AbstractVersionCommand {
     result.addAll(definedVersions);
 
     return !definedVersions.isEmpty();
-  }
+  }*/
 }
