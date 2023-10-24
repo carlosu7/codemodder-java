@@ -56,26 +56,4 @@ abstract class AbstractCommand implements Command {
   public boolean postProcess(ProjectModel c) throws XMLStreamException {
     return false;
   }
-
-  /**
-   * Retrieves the local repository path from various sources or default values.
-   *
-   * @param pm The ProjectModel containing information about the project.
-   * @return A File object representing the local repository path.
-   */
-  protected File getLocalRepositoryPath(ProjectModel pm) {
-    File localRepositoryPath = null;
-
-    if (pm.getRepositoryPath() != null) {
-      localRepositoryPath = pm.getRepositoryPath();
-    } else if (System.getenv("M2_REPO") != null) {
-      localRepositoryPath = new File(System.getenv("M2_REPO"));
-    } else if (System.getProperty("maven.repo.local") != null) {
-      localRepositoryPath = new File(System.getProperty("maven.repo.local"));
-    } else {
-      localRepositoryPath = new File(System.getProperty("user.home"), ".m2/repository");
-    }
-
-    return null;
-  }
 }

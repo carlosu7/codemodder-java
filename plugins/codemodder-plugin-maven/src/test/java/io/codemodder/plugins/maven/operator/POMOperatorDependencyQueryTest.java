@@ -51,22 +51,6 @@ final class POMOperatorDependencyQueryTest {
   }
 
   @Test
-  void testFailedUnsafeQuery()
-      throws DocumentException, IOException, URISyntaxException, XMLStreamException {
-    Assertions.assertThrows(
-        IllegalStateException.class,
-        () -> {
-          ProjectModelFactory context =
-              ProjectModelFactory.load(getClass().getResource("pom-broken.xml"));
-          context.withQueryType(QueryType.UNSAFE);
-
-          Collection<Dependency> dependencies = POMOperator.queryDependency(context.build());
-
-          assertTrue("Dependencies are empty", dependencies != null && dependencies.isEmpty());
-        });
-  }
-
-  @Test
   void testAllQueryTypes()
       throws DocumentException, IOException, URISyntaxException, XMLStreamException {
     String[] pomFiles = {"pom-1.xml", "pom-3.xml"};
@@ -83,7 +67,7 @@ final class POMOperatorDependencyQueryTest {
         }
 
         ProjectModelFactory context = ProjectModelFactory.load(getClass().getResource(pomFile));
-        context.withQueryType(QueryType.UNSAFE);
+        context.withQueryType(QueryType.SAFE);
 
         Collection<Dependency> dependencies =
             POMOperator.queryDependency(context.build(), commandListOverride);

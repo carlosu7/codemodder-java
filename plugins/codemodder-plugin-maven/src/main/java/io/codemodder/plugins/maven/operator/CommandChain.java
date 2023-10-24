@@ -117,7 +117,7 @@ class CommandChain {
     commands.addAll(initialCommands);
     commands.addAll(filteredCommands);
 
-    if (commands.isEmpty()) {
+    if (queryType != QueryType.NONE && commands.isEmpty()) {
       throw new IllegalStateException(
           "Unable to load any available strategy for " + queryType.name());
     }
@@ -135,7 +135,7 @@ class CommandChain {
     return filterByQueryType(
         AVAILABLE_DEPENDENCY_QUERY_COMMANDS,
         queryType,
-        Arrays.asList(CheckLocalRepositoryDirCommand.CheckParentDirCommand.getInstance()),
+        Collections.emptyList(),
         it -> it == queryType);
   }
 
