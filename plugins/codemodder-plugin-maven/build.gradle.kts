@@ -15,12 +15,7 @@ dependencies {
     val kotlinVersion = "1.7.10"
     val javaSemverVersion = "0.9.0"
     val commonsIoVersion = "2.11.0"
-    val mavenInvokerVersion = "3.2.0"
-    val mavenEmbedderVersion = "3.8.6"
     val guiceVersion = "5.1.0"
-    val mavenResolverVersion = "1.9.2"
-    val mavenProviderVersion = "3.8.6"
-    val modelBuilderVersion = "3.8.6"
     val juniversalchardetVersion = "2.4.0"
     val slf4jSimpleVersion = "2.0.0"
     val diffMatchPatchVersion = "0.0.2"
@@ -50,23 +45,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("com.github.zafarkhaja:java-semver:$javaSemverVersion")
     implementation("commons-io:commons-io:$commonsIoVersion")
-    implementation("org.apache.maven.shared:maven-invoker:$mavenInvokerVersion")
-    implementation("org.apache.maven:maven-embedder:$mavenEmbedderVersion") {
-        exclude(group = "com.google.inject", module = "guice")
-    }
-    implementation("org.apache.maven:maven-compat:$mavenEmbedderVersion") {
-        exclude(group = "com.google.inject", module = "guice")
-    }
     implementation("com.google.inject:guice:$guiceVersion")
-    implementation("org.apache.maven.resolver:maven-resolver-api:$mavenResolverVersion")
-    implementation("org.apache.maven.resolver:maven-resolver-spi:$mavenResolverVersion")
-    implementation("org.apache.maven.resolver:maven-resolver-util:$mavenResolverVersion")
-    implementation("org.apache.maven.resolver:maven-resolver-impl:$mavenResolverVersion")
-    implementation("org.apache.maven.resolver:maven-resolver-transport-file:$mavenResolverVersion")
-    implementation("org.apache.maven.resolver:maven-resolver-transport-http:$mavenResolverVersion")
-    implementation("org.apache.maven.resolver:maven-resolver-connector-basic:$mavenResolverVersion")
-    implementation("org.apache.maven:maven-resolver-provider:$mavenProviderVersion")
-    implementation("org.apache.maven:maven-model-builder:$modelBuilderVersion")
     implementation("com.github.albfernandez:juniversalchardet:$juniversalchardetVersion")
     testImplementation("org.slf4j:slf4j-simple:$slf4jSimpleVersion")
     testImplementation("fun.mike:diff-match-patch:$diffMatchPatchVersion")
