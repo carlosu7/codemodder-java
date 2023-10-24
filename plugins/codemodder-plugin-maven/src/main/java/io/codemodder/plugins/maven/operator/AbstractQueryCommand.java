@@ -181,7 +181,7 @@ abstract class AbstractQueryCommand extends AbstractCommand {
     return false;
   }
 
-  protected InvocationRequest buildInvocationRequest(
+  /*protected InvocationRequest buildInvocationRequest(
       File outputPath, File pomFilePath, ProjectModel c) {
     Properties props = new Properties(System.getProperties());
     props.setProperty("outputFile", outputPath.getAbsolutePath());
@@ -193,7 +193,7 @@ abstract class AbstractQueryCommand extends AbstractCommand {
     }
 
     InvocationRequest request = new DefaultInvocationRequest();
-    findMaven(request);
+    //findMaven(request);
 
     request.setPomFile(pomFilePath);
     request.setShellEnvironmentInherited(true);
@@ -210,7 +210,7 @@ abstract class AbstractQueryCommand extends AbstractCommand {
     request.setGoals(goals);
 
     return request;
-  }
+  }*/
 
   /**
    * Locates where Maven is at - HOME var and main launcher script.

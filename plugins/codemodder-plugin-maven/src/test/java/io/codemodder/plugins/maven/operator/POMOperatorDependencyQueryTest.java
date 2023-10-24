@@ -33,7 +33,7 @@ final class POMOperatorDependencyQueryTest {
 
         LOGGER.debug("Dependencies found: {}", dependencies);
 
-        assertTrue("Dependencies are not empty", !dependencies.isEmpty());
+        assertTrue("Dependencies are not empty", dependencies != null && !dependencies.isEmpty());
       }
     }
   }
@@ -62,7 +62,7 @@ final class POMOperatorDependencyQueryTest {
 
           Collection<Dependency> dependencies = POMOperator.queryDependency(context.build());
 
-          assertTrue("Dependencies are empty", dependencies.isEmpty());
+          assertTrue("Dependencies are empty", dependencies != null && dependencies.isEmpty());
         });
   }
 

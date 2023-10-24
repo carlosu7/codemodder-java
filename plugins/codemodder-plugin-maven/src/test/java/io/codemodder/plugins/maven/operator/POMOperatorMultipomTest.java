@@ -128,7 +128,7 @@ final class POMOperatorMultipomTest extends AbstractTestBase {
 
     Collection<Dependency> dependencies = POMOperator.queryDependency(projectModel);
 
-    boolean foundDependency = dependencies.contains(context.getDependency());
+    boolean foundDependency = dependencies != null &&  dependencies.contains(context.getDependency());
 
     Assert.assertTrue(
         "Dependency "
