@@ -130,7 +130,8 @@ final class POMOperatorMultipomTest extends AbstractTestBase {
 
     LOGGER.debug("Dependencies found {}", dependencies);
 
-    boolean foundDependency = dependencies != null &&  dependencies.contains(context.getDependency());
+    boolean foundDependency =
+        dependencies != null && dependencies.contains(context.getDependency());
 
     Assert.assertTrue(
         "Dependency "

@@ -36,40 +36,7 @@ public class POMScanner {
    */
   public static ProjectModelFactory scanFrom(File originalFile, File topLevelDirectory)
       throws Exception {
-    // ProjectModelFactory originalDocument = ProjectModelFactory.load(originalFile);
-
-    // List<File> parentPoms;
-    // try {
-    //  parentPoms = getParentPoms(originalFile);
-    // } catch (Exception e) {
-    //  if (e instanceof ModelBuildingException) {
-    //    Ignorable.LOGGER.debug("mbe (you can ignore): ", e);
-    //  } else {
-    //    LOGGER.warn("While trying embedder: ", e);
-    //  }
     return legacyScanFrom(originalFile, topLevelDirectory);
-    // }
-
-    /*try {
-      List<POMDocument> parentPomDocuments =
-          parentPoms.stream()
-              .map(
-                  file -> {
-                    try {
-                      return POMDocumentFactory.load(file);
-                    } catch (IOException | URISyntaxException | DocumentException e) {
-
-                      return null;
-                    }
-                  })
-              .filter(Objects::nonNull)
-              .collect(Collectors.toList());
-
-      return originalDocument.withParentPomFiles(parentPomDocuments);
-    } catch (Exception e) {
-
-      return originalDocument;
-    }*/
   }
 
   /**
@@ -257,36 +224,4 @@ public class POMScanner {
 
     return !(path.startsWith("/") || path.startsWith("~"));
   }
-
-  /*
-  private static List<File> getParentPoms(File originalFile) throws ModelBuildingException {
-    EmbedderFacade.EmbedderFacadeResponse embedderFacadeResponse =
-        EmbedderFacade.invokeEmbedder(
-            new EmbedderFacade.EmbedderFacadeRequest(true, null, originalFile, null, null));
-
-    ModelBuildingResult res = embedderFacadeResponse.getModelBuildingResult();
-
-    List<Model> rawModels = new ArrayList<>();
-    for (String modelId : res.getModelIds()) {
-      Model rawModel = res.getRawModel(modelId);
-      if (rawModel != null) {
-        rawModels.add(rawModel);
-      }
-    }
-
-    List<File> parentPoms = new ArrayList<>();
-    if (rawModels.size() > 1) {
-      for (int i = 1; i < rawModels.size(); i++) {
-        Model rawModel = rawModels.get(i);
-        if (rawModel != null) {
-          File pomFile = rawModel.getPomFile();
-          if (pomFile != null) {
-            parentPoms.add(pomFile);
-          }
-        }
-      }
-    }
-
-    return parentPoms;
-  }*/
 }

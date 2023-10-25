@@ -1,6 +1,5 @@
 package io.codemodder.plugins.maven.operator;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
